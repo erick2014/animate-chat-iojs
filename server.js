@@ -1,6 +1,7 @@
 'use strict'
 
 const fs=require('fs')
+const path=require('path')
 const port =process.env.PORT || 8080
 const http=require('http')
 
@@ -11,11 +12,12 @@ server.on('request',onRequest)
 server.on('listening',onListening)
 
 function onRequest(req,res){
-  fs.readFile('public/index.html',function(err,file){
-  	if(err){
-  		return res.end(err.message)
-  	}
-  	res.end(file)
+    let fileName=path.join(__dirname,'public','index.html')
+    fs.readFile(fileName,function(err,file){
+    if(err){
+         return res.end(err.message)
+    }
+    res.end(file)
   })
 }
 
