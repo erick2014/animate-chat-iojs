@@ -1,5 +1,6 @@
 'use strict'
 
+const fs=require('fs')
 const port =process.env.PORT || 8080
 const http=require('http')
 
@@ -10,7 +11,12 @@ server.on('request',onRequest)
 server.on('listening',onListening)
 
 function onRequest(req,res){
-  res.end('Hola io.js')
+  fs.readFile('public/index.html',function(err,file){
+  	if(err){
+  		return res.end(err.message)
+  	}
+  	res.end(file)
+  })
 }
 
 function onListening(){
