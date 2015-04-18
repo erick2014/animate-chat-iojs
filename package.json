@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/erick2014/animate-chat-iojs/issues"
   },
-  "homepage": "https://github.com/erick2014/animate-chat-iojs"
+  "homepage": "https://github.com/erick2014/animate-chat-iojs",
+  "dependencies": {
+    "st": "^0.5.3"
+  }
 }
